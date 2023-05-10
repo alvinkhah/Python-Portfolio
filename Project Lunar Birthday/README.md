@@ -46,18 +46,20 @@ The date_validation function takes in the day, month, year components of the inp
 
 After getting the numbers for day, month and year, I laid out the maximum number of days which are within each calendar month and made sure that February had the 29th day for leap years. Leap_year variable was then assigned as False by default and only returned as True when the year was calculated to be a leap year.
 
-  **if month in [1, 3, 5, 7, 8, 10, 12]:**
-      **max_days = 31**
-  **elif month in [4, 6, 9, 11]:**
-      **max_days = 30**
-  **elif year % 4 == 0 and year % 100 != 0 or year % 4 == 0 and year % 400 == 0:**    # Conditions for month of February
-      **max_days = 29**
-  **else:**
-      **max_days = 28**
+```
+  if month in [1, 3, 5, 7, 8, 10, 12]:
+      max_days = 31
+  elif month in [4, 6, 9, 11]:
+      max_days = 30
+  elif year % 4 == 0 and year % 100 != 0 or year % 4 == 0 and year % 400 == 0:    # Conditions for month of February
+      max_days = 29
+  else:
+      max_days = 28
 
-  **leap_year = False**                       # To note whether that year was a leap year for the first output statement to user
-  **if year % 4 == 0 and year % 100 != 0 or year % 4 == 0 and year % 400 == 0:**
-      **leap_year = True**
+  leap_year = False                       # To note whether that year was a leap year for the first output statement to user
+  if year % 4 == 0 and year % 100 != 0 or year % 4 == 0 and year % 400 == 0:
+      leap_year = True
+```
 
 After the lines of code above, the following were validity checks. If the day component was out of range, an error message saying "*day* is out of valid range. Please check the day." and the program is exited. Similar error messages will be sent if the month component or year component was out of range and the program will be exited.
 
