@@ -63,26 +63,30 @@ After getting the numbers for day, month and year, I laid out the maximum number
 
 After the lines of code above, the following were validity checks. If the day component was out of range, an error message saying "*day* is out of valid range. Please check the day." and the program is exited. Similar error messages will be sent if the month component or year component was out of range and the program will be exited.
 
-  **if day < 1 or max_days < day:**
-      **print(f"\n{day} is out of valid range. Please check the day.")**
-      **return False**
-  **elif month < 1 or 12 < month:**
-      **print(f"\n{month} is out of valid range. Please check the month.")**
-      **return False**
-  **elif year < 1900 or current_year < year:**
-      **print(f"\n{year} is out of range. Please check the year.")**
-      **return False**
+```
+  if day < 1 or max_days < day:
+      print(f"\n{day} is out of valid range. Please check the day.")
+      return False
+  elif month < 1 or 12 < month:
+      print(f"\n{month} is out of valid range. Please check the month.")
+      return False
+  elif year < 1900 or current_year < year:
+      print(f"\n{year} is out of range. Please check the year.")
+      return False
+```
 
 If the date was correct, then the last part of date_validation function is to provide the first statement informing about the day of the week, the numerical day, fully spelt month name and numerical year of the birthday. It also informs whether the birth year was a leap year.
 
-  **else:**
-      **num_date_of_birth = datetime.datetime(year, month, day)**
-      **dob_statement = num_date_of_birth.strftime("%A, %d %B %Y")**                  # No need for zero padding if day or month is single digit
-      **if leap_year == False:**
-          **print(f"\nYou were born on {dob_statement}. It was not a leap year.")**    # First output statement to user
-      **else:**
-          **print(f"\nYou were born on {dob_statement}. It was a leap year.")**        # First output statement to user
-      **return True**
+```
+  else:
+      num_date_of_birth = datetime.datetime(year, month, day)
+      dob_statement = num_date_of_birth.strftime("%A, %d %B %Y")                  # No need for zero padding if day or month is single digit
+      if leap_year == False:
+          print(f"\nYou were born on {dob_statement}. It was not a leap year.")    # First output statement to user
+      else:
+          print(f"\nYou were born on {dob_statement}. It was a leap year.")        # First output statement to user
+      return True
+```
 
 An example of the first statement:
 
@@ -91,20 +95,24 @@ An example of the first statement:
 ### Zodiac Function
 The zodiac function takes in the lunar_year and current_year as its arguments. The zodiac function determines the Chinese zodiac which the lunar birth date falls in. Since we restricted the valid years to be from 1900 to current year and knowing that the zodiacs move in 12-year cycles, I used the range() method and started the zodiac cycles from year 1900 onwards. In order for this method to work, current_year variable had to be in integer form, so it was converted. The function returns the zodiac sign. For example:
 
-  **for r in range(1900, current_year + 1, 12):**     # Chinese zodiac in 12-year cycle
-      **if lunar_year == r:**
-          **return f"Rat"**
+```
+  for r in range(1900, current_year + 1, 12):     # Chinese zodiac in 12-year cycle
+      if lunar_year == r:
+          return f"Rat"
+```
 
 ### Element Function
 The element function takes in the lunar_year as its only argument. The element function determines the Chinese element which the lunar birth date falls in. Since the elements move in 10-year cycles, the last digit of the lunar birth year is sufficient to determine the Chinese element that the lunar birth date falls in. I decided to use string indexing "[-1]" to achieve this, so the lunar_year was converted to a string. The function returns the element.
 
-  **if lunar_year[-1] == "0" or lunar_year[-1] == "1":**      # Chinese elements are repeated in 10-year cycle
-      **return f"Metal"**
-  **elif lunar_year[-1] == "2" or lunar_year[-1] == "3":**
-      **return f"Water"**
-  **elif lunar_year[-1] == "4" or lunar_year[-1] == "5":**
-      **return f"Wood"**
-  **elif lunar_year[-1] == "6" or lunar_year[-1] == "7":**
-      **return f"Fire"**
-  **else:**
-      **return f"Earth"**
+```
+  if lunar_year[-1] == "0" or lunar_year[-1] == "1":      # Chinese elements are repeated in 10-year cycle
+      return f"Metal"
+  elif lunar_year[-1] == "2" or lunar_year[-1] == "3":
+      return f"Water"
+  elif lunar_year[-1] == "4" or lunar_year[-1] == "5":
+      return f"Wood"
+  elif lunar_year[-1] == "6" or lunar_year[-1] == "7":
+      return f"Fire"
+  else:
+      return f"Earth"
+```
