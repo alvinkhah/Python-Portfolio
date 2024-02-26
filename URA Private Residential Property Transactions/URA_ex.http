@@ -1,0 +1,12 @@
+#Uncomment code below for "Send Request" to appear above it.
+#Click "Send Request" to execute code. 
+#Alternatively, can use Ctrl+Alt+R to execute code.
+
+# To get token.
+curl "https://www.ura.gov.sg/uraDataService/insertNewToken.action"
+  -H "AccessKey: <your access key here>"
+
+# To get data (total of 4 batches as stated in the API Reference), so change last number in curl to download each of the batches.
+#curl "https://www.ura.gov.sg/uraDataService/invokeUraDS?service=PMI_Resi_Transaction&batch=1"
+  #-H "AccessKey: <your access key here>"
+  #-H "Token: <your token here>"
