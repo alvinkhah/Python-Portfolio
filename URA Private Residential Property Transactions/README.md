@@ -60,7 +60,7 @@ response = requests.request("POST", url, json=payload)
 print(response.text)
 ```
 
-Next is to subject the master file to the coordinates conversion. Run the script titled "Step2".
+Next is to subject the master file to the coordinates conversion. Insert authentication token into "headers" at line 48. Run the script titled "Step2".
 Enter the name of the file output from "Step1".
 Do note that not all properties have coordinates provided and the script will assign None to them.
 
