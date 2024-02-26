@@ -64,6 +64,10 @@ Next is to subject the master file to the coordinates conversion. Insert authent
 Enter the name of the file output from "Step1".
 Do note that not all properties have coordinates provided and the script will assign None to them.
 
+It is my personal observation that converting close to 300 coordinate pairs at any one time have a high probability of hitting the OneMap API limit.
+Hence, "Step2" was designed to feed 250 coordinates at a time and even with a stable internet connection, it will take a while.
+Feel free to step away from your computer as a series of 10 incrementally loud beeps will play once the conversions are done.
+
 ## Data Flattening: Step3
 
 As the data are nested dictionaries, it will be easier to analyse them when they are flattened. Run the script titled "Step3".
